@@ -22,7 +22,7 @@ const Contact = () => {
                             </div>
                             <div>
                                 <h3 className="font-semibold text-dark text-lg mb-1">Our Location</h3>
-                                <p className="text-gray-600">Lagos, Nigeria</p>
+                                <p className="text-gray-600">Abuja Nigeria</p>
                                 <p className="text-gray-500 text-sm mt-1">Visit us by appointment</p>
                             </div>
                         </div>
@@ -33,7 +33,7 @@ const Contact = () => {
                             </div>
                             <div>
                                 <h3 className="font-semibold text-dark text-lg mb-1">Email Us</h3>
-                                <p className="text-gray-600">info@harmonyimpact.org</p>
+                                <p className="text-gray-600">harmonyimpact@gmail.com</p>
                                 <p className="text-gray-500 text-sm mt-1">For general inquiries and partnerships</p>
                             </div>
                         </div>
@@ -44,7 +44,7 @@ const Contact = () => {
                             </div>
                             <div>
                                 <h3 className="font-semibold text-dark text-lg mb-1">Call Us</h3>
-                                <p className="text-gray-600">+234-XXX-XXX-XXXX</p>
+                                <p className="text-gray-600">0915 360 3332 / 0813 313 8624</p>
                                 <p className="text-gray-500 text-sm mt-1">Mon-Fri from 9am to 5pm</p>
                             </div>
                         </div>
