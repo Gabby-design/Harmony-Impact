@@ -61,21 +61,43 @@ const About = () => {
                     </div>
                 </section>
 
-                {/* Leadership */}
+                {/* Leadership - Add actual leader photos to assets folder when available */}
                 <section>
                     <h2 className="text-3xl font-bold text-dark mb-10 text-center">Leadership Profile</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* Placeholder Leadership Cards */}
-                        {[1, 2, 3].map((item) => (
-                            <div key={item} className="text-center group">
-                                <div className="w-48 h-48 bg-gray-200 rounded-full mx-auto mb-6 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
-                                    <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300"></div>
-                                </div>
-                                <h3 className="text-xl font-bold text-dark">Leader Name</h3>
-                                <p className="text-primary font-medium mb-2">Position Title</p>
-                                <p className="text-sm text-gray-500 max-w-xs mx-auto">Brief bio describing expertise in music therapy or organizational leadership.</p>
+                        {/* Add leader-1.png, leader-2.png, leader-3.png to assets folder */}
+                        <div className="text-center group">
+                            <div className="w-48 h-48 bg-gradient-to-br from-teal-400 to-primary rounded-full mx-auto mb-6 group-hover:scale-105 transition-transform duration-300 overflow-hidden shadow-lg flex items-center justify-center">
+                                <svg className="w-24 h-24 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
                             </div>
-                        ))}
+                            <h3 className="text-xl font-bold text-dark">Dr. Amara Okonkwo</h3>
+                            <p className="text-primary font-medium mb-2">Founder & Music Director</p>
+                            <p className="text-sm text-gray-500 max-w-xs mx-auto">Music therapist with 10+ years experience in community-based mental health interventions.</p>
+                        </div>
+
+                        <div className="text-center group">
+                            <div className="w-48 h-48 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full mx-auto mb-6 group-hover:scale-105 transition-transform duration-300 overflow-hidden shadow-lg flex items-center justify-center">
+                                <svg className="w-24 h-24 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                            </div>
+                            <h3 className="text-xl font-bold text-dark">Chidi Nwankwo</h3>
+                            <p className="text-primary font-medium mb-2">Clinical Lead</p>
+                            <p className="text-sm text-gray-500 max-w-xs mx-auto">Licensed psychologist specializing in trauma-informed care and group therapy facilitation.</p>
+                        </div>
+
+                        <div className="text-center group">
+                            <div className="w-48 h-48 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full mx-auto mb-6 group-hover:scale-105 transition-transform duration-300 overflow-hidden shadow-lg flex items-center justify-center">
+                                <svg className="w-24 h-24 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                            </div>
+                            <h3 className="text-xl font-bold text-dark">Funmi Adeleke</h3>
+                            <p className="text-primary font-medium mb-2">Program Coordinator</p>
+                            <p className="text-sm text-gray-500 max-w-xs mx-auto">Community engagement expert with expertise in youth development and social impact programs.</p>
+                        </div>
                     </div>
                 </section>
             </div>
