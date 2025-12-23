@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Heart } from 'lucide-react';
+import heroBg from '../assets/hero-bg.png';
 
 const Hero = () => {
     return (
         <section className="relative bg-dark text-white overflow-hidden min-h-[90vh] flex items-center">
             {/* Background with Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-teal-900 via-slate-900 to-slate-900 opacity-90 z-0"></div>
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] bg-cover bg-center mix-blend-overlay opacity-20 z-0"></div>
+            <div className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-20 z-0" style={{ backgroundImage: `url(${heroBg})` }}></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-20">
                 <div className="max-w-4xl">

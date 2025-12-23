@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import communityImg from '../assets/community-session.png';
 
 const AboutSummary = () => {
     return (
@@ -9,8 +10,8 @@ const AboutSummary = () => {
                     <div className="w-full md:w-1/2">
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                             <img
-                                src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
-                                alt="Community Music Therapy"
+                                src={communityImg}
+                                alt="Community Music Therapy in Nigeria"
                                 className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>

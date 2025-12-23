@@ -1,3 +1,6 @@
+import heroBg from '../assets/hero-bg.png';
+import communityImg from '../assets/community-session.png';
+
 const Media = () => {
     const stories = [
         { title: "Healing Through Rhythm: The Lagos Concert", date: "Dec 12, 2024", category: "Events" },
@@ -17,23 +20,53 @@ const Media = () => {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {stories.map((story, index) => (
-                        <div key={index} className="group cursor-pointer">
-                            <div className="bg-gray-200 rounded-2xl h-64 w-full mb-4 overflow-hidden relative">
-                                <div className="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-dark">
-                                    {story.category}
-                                </div>
-                                {/* Image Placeholder */}
-                                <div className="w-full h-full bg-gray-300 group-hover:bg-gray-400 transition-colors flex items-center justify-center text-gray-500">
-                                    Image
-                                </div>
+                    <div className="group cursor-pointer">
+                        <div className="bg-gray-200 rounded-2xl h-64 w-full mb-4 overflow-hidden relative shadow-md">
+                            <div className="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-dark z-10">
+                                Events
                             </div>
-                            <p className="text-sm text-gray-400 mb-2">{story.date}</p>
-                            <h3 className="text-xl font-bold text-dark group-hover:text-primary transition-colors leading-tight">
-                                {story.title}
-                            </h3>
+                            <img
+                                src={heroBg}
+                                alt="Lagos Concert"
+                                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                            />
                         </div>
-                    ))}
+                        <p className="text-sm text-gray-400 mb-2">Dec 12, 2024</p>
+                        <h3 className="text-xl font-bold text-dark group-hover:text-primary transition-colors leading-tight">
+                            Healing Through Rhythm: The Lagos Concert
+                        </h3>
+                    </div>
+
+                    <div className="group cursor-pointer">
+                        <div className="bg-gray-200 rounded-2xl h-64 w-full mb-4 overflow-hidden relative shadow-md">
+                            <div className="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-dark z-10">
+                                Stories
+                            </div>
+                            <img
+                                src={communityImg}
+                                alt="Music Therapy Session"
+                                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                        <p className="text-sm text-gray-400 mb-2">Nov 28, 2024</p>
+                        <h3 className="text-xl font-bold text-dark group-hover:text-primary transition-colors leading-tight">
+                            Meet Amina: Finding Voice After Trauma
+                        </h3>
+                    </div>
+
+                    {/* Placeholder for other stories/press due to generation limits */}
+                    <div className="group cursor-pointer">
+                        <div className="bg-gray-200 rounded-2xl h-64 w-full mb-4 overflow-hidden relative shadow-md flex items-center justify-center">
+                            <div className="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-dark z-10">
+                                Press
+                            </div>
+                            <span className="text-gray-400">Image: Press Feature</span>
+                        </div>
+                        <p className="text-sm text-gray-400 mb-2">Oct 15, 2024</p>
+                        <h3 className="text-xl font-bold text-dark group-hover:text-primary transition-colors leading-tight">
+                            Harmony Impact Featured in National Daily
+                        </h3>
+                    </div>
                 </div>
             </div>
         </div>
