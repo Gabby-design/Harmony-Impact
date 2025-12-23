@@ -13,7 +13,7 @@ export default {
         light: '#F8FAFC', // Slate 50
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Outfit', 'sans-serif'],
       }
     },
   },
