@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 import communityImg from '../assets/community-session.png';
 
 const AboutSummary = () => {
@@ -7,7 +8,13 @@ const AboutSummary = () => {
         <section className="py-20 bg-light">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row items-center gap-16">
-                    <div className="w-full md:w-1/2">
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="w-full md:w-1/2"
+                    >
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                             <img
                                 src={communityImg}
@@ -20,9 +27,15 @@ const AboutSummary = () => {
                                 <p className="text-sm opacity-90">Lagos, Nigeria</p>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="w-full md:w-1/2">
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="w-full md:w-1/2"
+                    >
                         <h2 className="text-sm font-bold text-primary uppercase tracking-wider mb-2">About Harmony Impact</h2>
                         <h3 className="text-3xl md:text-4xl font-bold text-dark mb-6">We Believe in the Healing Power of Music</h3>
                         <p className="text-gray-600 text-lg mb-6 leading-relaxed">
@@ -38,7 +51,7 @@ const AboutSummary = () => {
                             Learn more about our mission
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

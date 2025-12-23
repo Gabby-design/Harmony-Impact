@@ -1,11 +1,18 @@
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-dark text-white pt-16 pb-8 border-t border-gray-800">
+        <motion.footer
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-dark text-white pt-16 pb-8 border-t border-gray-800"
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     {/* Brand Column */}
@@ -85,7 +92,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-        </footer>
+        </motion.footer>
     );
 };
 

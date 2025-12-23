@@ -19,9 +19,23 @@ const Hero = () => {
                     >
                         <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-6">
                             Healing Minds. <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-teal-400 to-teal-200">
+                            <motion.span
+                                className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-teal-400 to-teal-200 inline-block"
+                                animate={{
+                                    scale: [1, 1.05, 1],
+                                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                                style={{
+                                    backgroundSize: '200% 200%'
+                                }}
+                            >
                                 Restoring Hope.
-                            </span> <br />
+                            </motion.span> <br />
                             Transforming Communities.
                         </h1>
                     </motion.div>

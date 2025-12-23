@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const CTASection = () => {
     return (
@@ -9,11 +10,29 @@ const CTASection = () => {
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
 
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Join Us in Restoring Hope</h2>
-                <p className="text-xl text-gray-300 mb-10 leading-relaxed">
+                <motion.h2
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="text-3xl md:text-5xl font-bold text-white mb-6"
+                >Join Us in Restoring Hope</motion.h2>
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="text-xl text-gray-300 mb-10 leading-relaxed"
+                >
                     Whether you are a partner, donor, or volunteer, your support helps us bring healing music to communities that need it most.
-                </p>
-                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                </motion.p>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    className="flex flex-col sm:flex-row justify-center gap-4"
+                >
                     <Link
                         to="/get-involved"
                         className="px-8 py-4 bg-primary hover:bg-teal-600 text-white rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-primary/30"
@@ -26,7 +45,7 @@ const CTASection = () => {
                     >
                         Contact Us
                     </Link>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

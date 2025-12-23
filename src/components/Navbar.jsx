@@ -56,7 +56,12 @@ const Navbar = () => {
     const logoColor = 'text-white';
 
     return (
-        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${navbarClasses}`}>
+        <motion.nav
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className={`fixed top-0 w-full z-50 transition-all duration-300 ${navbarClasses}`}
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-20 items-center">
                     {/* Logo */}
@@ -76,8 +81,8 @@ const Navbar = () => {
                                 key={link.name}
                                 to={link.path}
                                 className={`text-sm font-medium transition-colors duration-200 ${isActive(link.path)
-                                        ? 'text-secondary font-bold'
-                                        : `${textColor} hover:text-secondary`
+                                    ? 'text-secondary font-bold'
+                                    : `${textColor} hover:text-secondary`
                                     }`}
                             >
                                 {link.name}
@@ -121,8 +126,8 @@ const Navbar = () => {
                                     to={link.path}
                                     onClick={() => setIsOpen(false)}
                                     className={`block px-4 py-3 rounded-lg text-base font-medium ${isActive(link.path)
-                                            ? 'bg-white/10 text-white'
-                                            : 'text-white/80 hover:bg-white/5 hover:text-white'
+                                        ? 'bg-white/10 text-white'
+                                        : 'text-white/80 hover:bg-white/5 hover:text-white'
                                         }`}
                                 >
                                     {link.name}
@@ -142,7 +147,7 @@ const Navbar = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </nav>
+        </motion.nav>
     );
 };
 
