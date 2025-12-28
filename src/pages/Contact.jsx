@@ -1,6 +1,63 @@
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
+import { useSearchParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+
 
 const Contact = () => {
+    const [searchParams] = useSearchParams();
+    const [submitted, setSubmitted] = useState(false);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        type: 'General Inquiry',
+        subject: '',
+        message: ''
+    });
+
+    useEffect(() => {
+        const typeParam = searchParams.get('type');
+        if (typeParam) {
+            let typeLabel = 'General Inquiry';
+            let subjectLine = '';
+
+            switch (typeParam) {
+                case 'partnership':
+                    typeLabel = 'Partnership/Collaboration';
+                    subjectLine = 'Interest in Partnering with Harmony Impact';
+                    break;
+                case 'donation':
+                    typeLabel = 'Donation/Sponsorship';
+                    subjectLine = 'Regarding Program Support and Donations';
+                    break;
+                case 'volunteer':
+                    typeLabel = 'Volunteering';
+                    subjectLine = 'Application to Join Volunteer Team';
+                    break;
+                default:
+                    typeLabel = 'General Inquiry';
+            }
+
+            setFormData(prev => ({
+                ...prev,
+                type: typeLabel,
+                subject: subjectLine
+            }));
+        }
+    }, [searchParams]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Simulate API call
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 5000);
+    };
+
+    const handleChange = (e) => {
+        const { id, value } = e.target;
+        setFormData(prev => ({ ...prev, [id]: value }));
+    };
+
     return (
         <div className="pt-10 pb-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,26 +108,94 @@ const Contact = () => {
                     </div>
 
                     {/* Contact Form */}
-                    <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+                    <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 relative overflow-hidden">
+                        {submitted ? (
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="absolute inset-0 bg-white/90 backdrop-blur-sm z-20 flex flex-col items-center justify-center text-center p-8"
+                            >
+                                <CheckCircle2 className="w-20 h-20 text-green-500 mb-4" />
+                                <h3 className="text-2xl font-bold text-dark mb-2">Message Sent!</h3>
+                                <p className="text-gray-600">Thank you for reaching out. We'll get back to you shortly.</p>
+                                <button
+                                    onClick={() => setSubmitted(false)}
+                                    className="mt-8 text-primary font-bold hover:underline"
+                                >
+                                    Send another one
+                                </button>
+                            </motion.div>
+                        ) : null}
+
                         <h2 className="text-2xl font-bold text-dark mb-6">Send a Message</h2>
-                        <form className="space-y-6">
+                        <form className="space-y-6" onSubmit={handleSubmit}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                                    <input type="text" id="name" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Your name" />
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        required
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                                        placeholder="Your name"
+                                    />
                                 </div>
                                 <div>
                                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                                    <input type="email" id="email" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="your@email.com" />
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        required
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                                        placeholder="your@email.com"
+                                    />
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label htmlFor="type" className="block text-sm font-medium text-gray-700 mb-2">Inquiry Type</label>
+                                    <select
+                                        id="type"
+                                        value={formData.type}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all appearance-none bg-white"
+                                    >
+                                        <option>General Inquiry</option>
+                                        <option>Partnership/Collaboration</option>
+                                        <option>Donation/Sponsorship</option>
+                                        <option>Volunteering</option>
+                                        <option>Program Inquiry</option>
+                                        <option>Media/Press</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                                    <input
+                                        type="text"
+                                        id="subject"
+                                        required
+                                        value={formData.subject}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                                        placeholder="How can we help?"
+                                    />
                                 </div>
                             </div>
                             <div>
-                                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
-                                <input type="text" id="subject" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="How can we help?" />
-                            </div>
-                            <div>
                                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                                <textarea id="message" rows={4} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Write your message here..."></textarea>
+                                <textarea
+                                    id="message"
+                                    rows={4}
+                                    required
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                                    placeholder="Write your message here..."
+                                ></textarea>
                             </div>
                             <button type="submit" className="w-full bg-primary hover:bg-teal-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg">
                                 Send Message
@@ -84,3 +209,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
