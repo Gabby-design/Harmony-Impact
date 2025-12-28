@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import communityImg from '../assets/community-session.png';
+import teamImg from '../assets/team-session.png';
+
 
 const About = () => {
     return (
@@ -29,8 +31,9 @@ const About = () => {
                     <div className="w-full md:w-1/2">
                         <div className="rounded-2xl h-80 w-full overflow-hidden shadow-xl">
                             <img
-                                src={communityImg}
-                                alt="Harmony Impact Team and Community"
+                                src={teamImg}
+                                alt="Harmony Impact Team"
+
                                 className="w-full h-full object-cover"
                             />
                         </div>
